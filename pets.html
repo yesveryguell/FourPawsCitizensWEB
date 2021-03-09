@@ -6,6 +6,7 @@
     <link href="css/bootstrap.css" rel="stylesheet">
     <link href="css/styles.css" rel="stylesheet">
 	<link rel="icon" href="imagenes/loguito.png">
+    <script type="text/javascript" src="http://d3js.org/d3.v5.js"></script>
 </head>
 <body>
     <div class="spinner-wrapper">
@@ -25,69 +26,9 @@
                             <p class="p-heading p-large">With Four Paws Citizens you can see your pets
                             all you want to find and is potentially dangerous.</p>
 
-                            <a class="btn-solid-lg page-scroll" href="#intro">DISCOVER</a>
-                            
-
-                            <a class="btn-solid-lg page-scroll" href="edit.html">DISCOVER</a>
+                            <a class="btn-solid-lg page-scroll" href="edit.html">Update</a>
                       
                         </div>
-                        <form action="pets.html">
-                                
-                                <p style="color:black";> Microchip: <input type="text" name="Microchip"></p>
-                                <p style="color:black";> Species: <br />
-                                <input style="color:black"; type="radio" name="cf" value="c"> Canine 
-                                <input style="color:black"; type="radio" name="cf" value="f"> Feline
-                                </p>
-                                <p style="color:black";>Sex: <br />
-                                <input type="radio" name="mh" value="m"> Male
-                                <input type="radio" name="mh" value="h"> Female
-                                </p>
-                                <p style="color:black";> Size: 
-                                    <select name=Size>
-                                    <option value = "1">Seleccione una opcion</option>
-                                    <option value = "2">Miniature</option>
-                                    <option value = "3">Small</option>
-                                    <option value = "4">Medium</option>
-                                    <option value = "4">Big</option>
-                                </select></p>
-                                <p style="color:black";>potentDangerous: <br />
-                                <input type="radio" name="tf" value="T"> Yes
-                                <input type="radio" name="tf" value="f"> No
-                                </p>
-                                <p style="color:black";> neighborhood: 
-                                    <select name=neighborhood>
-                                    <option value = "1">Seleccione una opcion</option>
-                                    <option value = "2">A. Nriño</option>
-                                    <option value = "3">B. Unidos</option>
-                                    <option value = "4">Bosa</option>
-                                    <option value = "4">C.Bolivar</option>
-                                    <option value = "4">Chapinero</option>
-                                    <option value = "4">Engativa</option>
-                                    <option value = "4">Fontibon</option>
-                                    <option value = "4">Kennedy</option>
-                                    <option value = "4">La candelaria</option>
-                                    <option value = "4">Los martires</option>
-                                    <option value = "4">Municipios Aledaños Bogota D.C.</option>
-                                    <option value = "4">P. Aranda</option>
-                                    <option value = "4">R. Uribe</option>
-                                    <option value = "4">San Cristobal</option>
-                                    <option value = "4">Santa Fe</option>
-                                    <option value = "4">Suba</option>
-                                    <option value = "4">Sumapaz</option>
-                                    <option value = "4">Teusaquillo</option>
-                                    <option value = "4">Tunjuelito</option>
-                                    <option value = "4">Usaquen</option>
-                                    <option value = "4">Usme</option>
-                                    <option value = "4">Sin Identificar</option>
-                                </select></p>
-                                <p style="color:black";> Race: <input type="text" name="Race"></p>
-                                <p style="color:black";> Owner: <input type="text" name="Owner"></p>
-                                <p style="color:black";> Address: <input type="address-line1" name="Address"></p>
-                                <p>
-                                <input type="submit" value="Enviar">
-                                <input type="reset" value="Borrar">
-                                </p>
-                            </form>
                     </div> 
                 </div> 
             </div> 
@@ -95,7 +36,8 @@
     </header> 
 
     <script src="js/jquery.min.js"></script>
-    <script src="js/morphext.min.js"></script> 
+    <script src="js/morphext.min.js"></script>
     <script src="js/scripts.js"></script> 
+    <script type="text/javascript" src="js/load-csv.js"></script>
 </body>
 </html>

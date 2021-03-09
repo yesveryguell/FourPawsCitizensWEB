@@ -14,9 +14,63 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="text-container">
-                            <h1>Your pet <span id="js-rotating">created, udapted, deleted, added</span></h1>
-                            <p class="p-heading p-large">With Four Paws Citizens you can see your pets
-                            all you want to find and is potentially dangerous.</p>
+                            <form action="pets.html">
+                                
+                                <p style="color:black";> Microchip: <input type="text" name="Microchip"></p>
+                                <p style="color:black";> Species: <br />
+                                <input style="color:black"; type="radio" name="cf" value="c"> Canine 
+                                <input style="color:black"; type="radio" name="cf" value="f"> Feline
+                                </p>
+                                <p style="color:black";>Sex: <br />
+                                <input type="radio" name="mh" value="m"> Male
+                                <input type="radio" name="mh" value="h"> Female
+                                </p>
+                                <p style="color:black";> Size: 
+                                    <select name=Size>
+                                    <option value = "1">Seleccione una opcion</option>
+                                    <option value = "2">Miniature</option>
+                                    <option value = "3">Small</option>
+                                    <option value = "4">Medium</option>
+                                    <option value = "5">Big</option>
+                                </select></p>
+                                <p style="color:black";>potentDangerous: <br />
+                                <input type="radio" name="tf" value="T"> Yes
+                                <input type="radio" name="tf" value="f"> No
+                                </p>
+                                <p style="color:black";> neighborhood: 
+                                    <select name=neighborhood>
+                                    <option value = "1">Seleccione una opcion</option>
+                                    <option value = "2">A. Nriño</option>
+                                    <option value = "3">B. Unidos</option>
+                                    <option value = "4">Bosa</option>
+                                    <option value = "5">C.Bolivar</option>
+                                    <option value = "6">Chapinero</option>
+                                    <option value = "7">Engativa</option>
+                                    <option value = "8">Fontibon</option>
+                                    <option value = "9">Kennedy</option>
+                                    <option value = "10">La candelaria</option>
+                                    <option value = "11">Los martires</option>
+                                    <option value = "12">Municipios Aledaños Bogota D.C.</option>
+                                    <option value = "13">P. Aranda</option>
+                                    <option value = "14">R. Uribe</option>
+                                    <option value = "15">San Cristobal</option>
+                                    <option value = "16">Santa Fe</option>
+                                    <option value = "17">Suba</option>
+                                    <option value = "18">Sumapaz</option>
+                                    <option value = "19">Teusaquillo</option>
+                                    <option value = "20">Tunjuelito</option>
+                                    <option value = "21">Usaquen</option>
+                                    <option value = "22">Usme</option>
+                                    <option value = "23">Sin Identificar</option>
+                                </select></p>
+                                <p style="color:black";> Race: <input type="text" name="Race"></p>
+                                <p style="color:black";> Owner: <input type="text" name="Owner"></p>
+                                <p style="color:black";> Address: <input type="address-line1" name="Address"></p>
+                                <p>
+                                <input type="submit" value="Enviar">
+                                <input type="reset" value="Borrar">
+                                </p>
+                            </form>
                         </div>
                     </div> 
                 </div> 
