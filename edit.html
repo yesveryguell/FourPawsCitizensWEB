@@ -6,6 +6,7 @@
     <link href="css/bootstrap.css" rel="stylesheet">
     <link href="css/styles.css" rel="stylesheet">
 	<link rel="icon" href="imagenes/loguito.png">
+    <script type="text/javascript" src="http://d3js.org/d3.v5.js"></script>
 </head>
 <body>
 	<header id="header" class="header">
@@ -14,27 +15,24 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="text-container">
-                            <form action="pets.html">
-                           <form action="pets.html">
 
-                                
-                                <p style="color:black";> Microchip: <input type="text" name="Microchip"></p>
+                           <form name="registro">
+                                <p style="color:black";> Microchip: <input type="text" id="Microchip"></p>
                                 <p style="color:black";> Species: <br />
-                                <input style="color:black"; type="radio" name="cf" value="c"> Canine 
-                                <input style="color:black"; type="radio" name="cf" value="f"> Feline
+                                <input style="color:black"; type="radio" id= "cf" value="Canine"> Canine 
+                                <input style="color:black"; type="radio" id="cf" value="Feline"> Feline
                                 </p>
                                 <p style="color:black";>Sex: <br />
-                                <input type="radio" name="mh" value="m"> Male
-                                <input type="radio" name="mh" value="h"> Female
+                                <input type="radio" name="mh" value="Male"> Male
+                                <input type="radio" name="mh" value="Female"> Female
                                 </p>
                                 <p style="color:black";> Size: 
-                                    <select name=Size>
-                                    <option value = "1">Seleccione una opcion</option>
-                                    <option value = "2">Miniature</option>
-                                    <option value = "3">Small</option>
-                                    <option value = "4">Medium</option>
-                                    <option value = "5">Big</option>
-                                    <option value = "4">Big</option>
+                                    <select required>
+                                    <option value = "">Seleccione una opcion</option>
+                                    <option >Miniature</option>
+                                    <option >Small</option>
+                                    <option >Medium</option>
+                                    <option >Big</option>
                                 </select></p>
                                 <p style="color:black";>potentDangerous: <br />
                                 <input type="radio" name="tf" value="T"> Yes
@@ -69,8 +67,7 @@
                                 <p style="color:black";> Race: <input type="text" name="Race"></p>
                                 <p style="color:black";> Owner: <input type="text" name="Owner"></p>
                                 <p style="color:black";> Address: <input type="address-line1" name="Address"></p>
-                                <p>
-                                <input type="submit" value="Enviar">
+                                <input name="ver" type="button" value = "ver" id="ver" onclick="prueba()" />
                                 <input type="reset" value="Borrar">
                                 </p>
                             </form>
@@ -84,5 +81,6 @@
     <script src="js/jquery.min.js"></script>
     <script src="js/morphext.min.js"></script> 
     <script src="js/scripts.js"></script> 
+    <script src="js/load-csv.js"></script> 
 </body>
 </html>
