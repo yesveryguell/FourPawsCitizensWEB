@@ -56,7 +56,7 @@ d3.dsv( ";", "../Data/pets-citizens.csv" )
     alData.push({"microchip" : microchip, "species" : species, "sex" : sex, "size" : size, 
       "potentDangerous" : potentDangerous, "neighborhood" : neighborhood, "race" : race, "owner" : owner,
        "address" : address});
-     
+     printData(); 
 
     
  }
