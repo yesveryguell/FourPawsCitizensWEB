@@ -2,10 +2,10 @@
 <html>
 <head>
     <meta charset="utf-8">
-	<title> Four Paws Citizens </title>
+    <title> Four Paws Citizens </title>
     <link href="css/bootstrap.css" rel="stylesheet">
     <link href="css/styles.css" rel="stylesheet">
-	<link rel="icon" href="imagenes/loguito.png">
+    <link rel="icon" href="imagenes/loguito.png">
     <script type="text/javascript" src="http://d3js.org/d3.v5.js"></script>
 </head>
 <body>
@@ -16,18 +16,18 @@
                     <div class="col-lg-12">
                         <div class="text-container">
 
-                           <form name="registro">
-                                <p style="color:black";> Microchip: <input type="text" id="Microchip"></p>
-                                <p style="color:black";> Species: <br />
-                                <input style="color:black"; type="radio" id= "cf" value="Canine"> Canine 
-                                <input style="color:black"; type="radio" id="cf" value="Feline"> Feline
-                                </p>
-                                <p style="color:black";>Sex: <br />
-                                <input type="radio" name="mh" value="Male"> Male
-                                <input type="radio" name="mh" value="Female"> Female
-                                </p>
-                                <p style="color:black";> Size: 
-                                    <select required>
+                         <form name="registro">
+                            <p style="color:black";> Microchip: <input type="text" id="Microchip"></p>
+                            <p style="color:black";> Species: <br />
+                                <input style="color:black"; type="radio" id= "c" value="Canine"> Canine 
+                                <input style="color:black"; type="radio" id="f" value="Feline"> Feline
+                            </p>
+                            <p style="color:black";>Sex: <br />
+                                <input type="radio" id="m" value="Male"> Male
+                                <input type="radio" id="f" value="Female"> Female
+                            </p>
+                            <p style="color:black";> Size: 
+                                <select required id="size">
                                     <option value = "">Seleccione una opcion</option>
                                     <option >Miniature</option>
                                     <option >Small</option>
@@ -35,40 +35,40 @@
                                     <option >Big</option>
                                 </select></p>
                                 <p style="color:black";>potentDangerous: <br />
-                                <input type="radio" name="tf" value="T"> Yes
-                                <input type="radio" name="tf" value="f"> No
+                                    <input type="radio" id="t" value="True"> Yes
+                                    <input type="radio" id="f" value="False"> No
                                 </p>
                                 <p style="color:black";> neighborhood: 
-                                    <select name=neighborhood>
-                                    <option value = "1">Seleccione una opcion</option>
-                                    <option value = "2">A. Nriño</option>
-                                    <option value = "3">B. Unidos</option>
-                                    <option value = "4">Bosa</option>
-                                    <option value = "5">C.Bolivar</option>
-                                    <option value = "6">Chapinero</option>
-                                    <option value = "7">Engativa</option>
-                                    <option value = "8">Fontibon</option>
-                                    <option value = "9">Kennedy</option>
-                                    <option value = "10">La candelaria</option>
-                                    <option value = "11">Los martires</option>
-                                    <option value = "12">Municipios Aledaños Bogota D.C.</option>
-                                    <option value = "13">P. Aranda</option>
-                                    <option value = "14">R. Uribe</option>
-                                    <option value = "15">San Cristobal</option>
-                                    <option value = "16">Santa Fe</option>
-                                    <option value = "17">Suba</option>
-                                    <option value = "18">Sumapaz</option>
-                                    <option value = "19">Teusaquillo</option>
-                                    <option value = "20">Tunjuelito</option>
-                                    <option value = "21">Usaquen</option>
-                                    <option value = "22">Usme</option>
-                                    <option value = "23">Sin Identificar</option>
-                                </select></p>
-                                <p style="color:black";> Race: <input type="text" name="Race"></p>
-                                <p style="color:black";> Owner: <input type="text" name="Owner"></p>
-                                <p style="color:black";> Address: <input type="address-line1" name="Address"></p>
-                                <input name="ver" type="button" value = "ver" id="ver" onclick="prueba()" />
-                                <input type="reset" value="Borrar">
+                                    <select id=neighborhood>
+                                        <option value = "1">Seleccione una opcion</option>
+                                        <option value = "2">A. Nriño</option>
+                                        <option value = "3">B. Unidos</option>
+                                        <option value = "4">Bosa</option>
+                                        <option value = "5">C.Bolivar</option>
+                                        <option value = "6">Chapinero</option>
+                                        <option value = "7">Engativa</option>
+                                        <option value = "8">Fontibon</option>
+                                        <option value = "9">Kennedy</option>
+                                        <option value = "10">La candelaria</option>
+                                        <option value = "11">Los martires</option>
+                                        <option value = "12">Municipios Aledaños Bogota D.C.</option>
+                                        <option value = "13">P. Aranda</option>
+                                        <option value = "14">R. Uribe</option>
+                                        <option value = "15">San Cristobal</option>
+                                        <option value = "16">Santa Fe</option>
+                                        <option value = "17">Suba</option>
+                                        <option value = "18">Sumapaz</option>
+                                        <option value = "19">Teusaquillo</option>
+                                        <option value = "20">Tunjuelito</option>
+                                        <option value = "21">Usaquen</option>
+                                        <option value = "22">Usme</option>
+                                        <option value = "23">Sin Identificar</option>
+                                    </select></p>
+                                    <p style="color:black";> Race: <input type="text" id="race"></p>
+                                    <p style="color:black";> Owner: <input type="text" id="owner"></p>
+                                    <p style="color:black";> Address: <input type="address-line1" id="address"></p>
+                                    <input name="ver" type="button" value = "ver" id="ver" onclick="prueba()" />
+                                    <input type="reset" value="Borrar">
                                 </p>
                             </form>
                         </div>
