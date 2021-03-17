@@ -16,7 +16,7 @@ d3.dsv( ";", "../Data/pets-citizens.csv" )
   }
 
   function prueba(){
-
+  
     //animal species
     var especie = document.getElementById("Canine");
     var especie2 = document.getElementById("Feline");
@@ -52,20 +52,45 @@ d3.dsv( ";", "../Data/pets-citizens.csv" )
     var race = document.getElementById('race').value;
     var owner = document.getElementById('owner').value;
     var address = document.getElementById('address').value;
+    //imagen
+    var archivo = document.getElementById("file").files[0];
+    var reader = new FileReader();
+    var photo;
+    if (file) {
+    reader.readAsDataURL(archivo); 
+  }else{
+      console.log("2xd");
+    }
 
-    alData.push({"microchip" : microchip, "species" : species, "sex" : sex, "size" : size, 
+    if(microchip != null && species != false && sex != false && size != "0" 
+      && potentDangerous != false && neighborhood !="1" && race != null 
+      && owner != null && address != null){
+      alData.push({"microchip" : microchip, "species" : species, "sex" : sex, "size" : size, 
       "potentDangerous" : potentDangerous, "neighborhood" : neighborhood, "race" : race, "owner" : owner,
-       "address" : address});
+       "address" : address, "photo" : archivo});
      printData(); 
-
+    }
+      else {
+        console.log("xd");
+      }
     
  }
 
- function manojoDeArreglo(){
-
-  console.log(allData[allData.length-1]);
-  allData.push({"microchip" : "1312312", "species" : "1312312", "sex" : "1312312", "size" : "1312312", "potentDangerous" : "1312312", "neighborhood" : "1312312"});
-  console.log(allData[allData.length-1]);
-
-
+ function deleteArray(){
+  var microchip = document.getElementById('Microchip').value;
+  for (var i = 0; i < alData.length; i++) {
+    var probar = alData[i].microchip;
+    if ( probar == microchip) {
+      delete alData[i]
+  }
+  printData();
+ }
 }
+// function manojoDeArreglo(){
+
+  //console.log(allData[allData.length-1]);
+  //allData.push({"microchip" : "1312312", "species" : "1312312", "sex" : "1312312", "size" : "1312312", "potentDangerous" : "1312312", "neighborhood" : "1312312"});
+  //console.log(allData[allData.length-1]);
+
+
+//}

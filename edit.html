@@ -17,29 +17,29 @@
                         <div class="text-container">
 
                          <form name="registro">
-                            <p style="color:black";> Microchip: <input type="text" id="Microchip"></p>
+                            <p style="color:black";> Microchip: <input type="text" id="Microchip" required></p>
                             <p style="color:black";> Species: <br />
-                                <input style="color:black"; type="radio" id= "Canine" value="Canine"> Canine 
-                                <input style="color:black"; type="radio" id="Feline" value="Feline"> Feline
+                                <input style="color:black"; type="radio" name="holi" id= "Canine" value="Canine" required> Canine 
+                                <input style="color:black"; type="radio" name="holi" id="Feline" value="Feline"> Feline
                             </p>
                             <p style="color:black";>Sex: <br />
-                                <input type="radio" id="m" value="Male"> Male
-                                <input type="radio" id="f" value="Female"> Female
+                                <input type="radio" name="holi1" id="m" value="Male" required> Male
+                                <input type="radio" name="holi1" id="f" value="Female"> Female
                             </p>
                             <p style="color:black";> Size: 
-                                <select required id="size">
-                                    <option value = "">Seleccione una opcion</option>
+                                <select required id="size" required>
+                                    <option value = "0">Seleccione una opcion</option>
                                     <option >Miniature</option>
                                     <option >Small</option>
                                     <option >Medium</option>
                                     <option >Big</option>
                                 </select></p>
                                 <p style="color:black";>potentDangerous: <br />
-                                    <input type="radio" id="true" value="True"> Yes
-                                    <input type="radio" id="false" value="False"> No
+                                    <input type="radio" name="holi2" id="true" value="True" required> Yes
+                                    <input type="radio" name="holi2" id="false" value="False"> No
                                 </p>
                                 <p style="color:black";> neighborhood: 
-                                    <select id=neighborhood>
+                                    <select id=neighborhood required>
                                         <option value = "1">Seleccione una opcion</option>
                                         <option value = "A. Nriño">A. Nriño</option>
                                         <option value = "B. Unidos">B. Unidos</option>
@@ -64,10 +64,13 @@
                                         <option value = "Usme">Usme</option>
                                         <option value = "Sin Identificar">Sin Identificar</option>
                                     </select></p>
-                                    <p style="color:black";> Race: <input type="text" id="race"></p>
-                                    <p style="color:black";> Owner: <input type="text" id="owner"></p>
-                                    <p style="color:black";> Address: <input type="address-line1" id="address"></p>
+                                    <p style="color:black";> Race: <input type="text" id="race" required></p>
+                                    <p style="color:black";> Owner: <input type="text" id="owner" required></p>
+                                    <p style="color:black";> Address: <input type="address-line1" id="address" required></p>
+                                    <input type="file" id="file" accept="image/*"/><br>
+                                    <img id="img"/>
                                     <input name="ver" type="button" value = "ver" id="ver" onclick="prueba()" />
+                                    <input name="borrar1" type="button" value = "borrar1" id="ver2" onclick="deleteArray()" />
                                     <input type="reset" value="Borrar">
                                 </p>
                             </form>
