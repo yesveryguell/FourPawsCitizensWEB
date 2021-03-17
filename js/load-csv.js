@@ -83,8 +83,8 @@ d3.dsv( ";", "../Data/pets-citizens.csv" )
     if ( probar == microchip) {
       delete alData[i]
   }
-  printData();
  }
+ printData();
 }
 // function manojoDeArreglo(){
 
