@@ -76,12 +76,13 @@ d3.dsv( ";", "../Data/pets-citizens.csv" )
     
  }
 
- function deleteArray(){
+ function updateArray(){
   var microchip = document.getElementById('Microchip').value;
+  var neighborhood = document.getElementById('neighborhood').value;
   for (var i = 0; i < alData.length; i++) {
     var probar = alData[i].microchip;
     if ( probar == microchip) {
-      delete alData[i]
+    alData[i] = {...alData[i],neighborhood : neighborhood};
   }
  }
  printData();
