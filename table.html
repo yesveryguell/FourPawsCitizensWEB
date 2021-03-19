@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title> Four Paws Citizens </title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link rel="stylesheet" href="css/Table.css">
+</head>
+<body>
+
+		<table id="datatable" class="datatable">
+			<thead>
+				<tr>
+					<th></th>
+					<th>Microchip</th>
+					<th>Species</th>
+					<th>Sex</th>
+					<th>Size</th>
+					<th>Potent Dangerous</th>
+					<th>neighborhood</th>
+					<th>Race</th>
+					<th>Owner</th>
+					<th>Adress</th>
+				</tr>
+			</thead>
+
+			<tbody>
+				<tr>
+					<td class="table-checkbox"><input type="checkbox" name="" id=""></td>
+					<td>23456789</td>
+					<td>CANINE</td>
+					<td>MACHO</td>
+					<td>GRANDE</td>
+					<td>YES</td>
+					<td>FONTIBON</td>
+					<td>BULLDOG</td>
+					<td>ROJITAS<3</td>
+					<td>Carrera 6</td>
+				</tr>
+
+				<tr>
+					<td class="table-checkbox"><input type="checkbox" name="" id=""></td>
+					<td>98652342</td>
+					<td>CANINE</td>
+					<td>MACHO</td>
+					<td>GRANDE</td>
+					<td>YES</td>
+					<td>FONTIBON</td>
+					<td>BULLDOG</td>
+					<td>ROJITAS<3</td>
+					<td>Carrera 6</td>
+				</tr>
+
+				<tr>
+					<td class="table-checkbox"><input type="checkbox" name="" id=""></td>
+					<td>98652342</td>
+					<td>CANINE</td>
+					<td>MACHO</td>
+					<td>GRANDE</td>
+					<td>YES</td>
+					<td>FONTIBON</td>
+					<td>BULLDOG</td>
+					<td>ROJITAS<3</td>
+					<td>Carrera 6</td>
+				</tr>
+			</tbody>
+		</table>
+		<script src="js/table.js"></script>
+		<script>
+			const dt = new DataTable('#datatable', [
+			{
+				id: 'bAdd',
+				text: 'agregar',
+				icon: 'add_circle',
+				action: function(){
+					//codigo callback
+				}
+			}
+				]);
+
+			dt.parse();
+		</script>
+</body>
+</html>
