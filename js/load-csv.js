@@ -1,19 +1,15 @@
-var alData;
+var allData;
 
 d3.dsv( ";", "../Data/pets-citizens.csv" )
   .then( function( data ) {
-  	alData = data; 
-  	printData(); 
-    prueba();
+  	allData = data; 
+  	localStorage.setItem("dat", JSON.stringify(allData));  
   } )
 
   .catch( function( error ) {
     // handle error   
   } );
 
-  function printData(){
-  	console.log(alData);
-  }
 
   function prueba(){
   
