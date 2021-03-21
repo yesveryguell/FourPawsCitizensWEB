@@ -6,7 +6,11 @@
     <link href="css/bootstrap.css" rel="stylesheet">
     <link href="css/styles.css" rel="stylesheet">
     <link rel="icon" href="imagenes/loguito.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="css/Table.css">
     <script type="text/javascript" src="http://d3js.org/d3.v5.js"></script>
+    <script src="js/load-csv.js"></script>
 </head>
 <body>
 	<header id="header" class="header">
@@ -16,7 +20,7 @@
                     <div class="col-lg-12">
                         <div class="text-container" id="divddd">
 
-                         <form name="registro">
+                           <form name="registro">
                             <p style="color:black";> Microchip: <input type="text" id="Microchip" required></p>
                             <p style="color:black";> Species: <br />
                                 <input style="color:black"; type="radio" name="holi" id= "Canine" value="Canine" required> Canine 
@@ -69,11 +73,29 @@
                                     <p style="color:black";> Address: <input type="address-line1" id="address" required></p>
                                     <input type="file" id="file" accept="image/*"/><br>
                                     <img id="img"/>
-                                    <input name="ver" type="button" value = "ver" id="ver" onclick="prueba()" />
-                                    <input name="Editar" type="button" value = "Eidtar" id="ver2" onclick="updateArray()" />
                                     <input type="reset" value="Borrar">
                                 </p>
                             </form>
+
+                            <table id="datatable" class="datatable">
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th>Microchip</th>
+                                    <th>Species</th>
+                                    <th>Sex</th>
+                                    <th>Size</th>
+                                    <th>Potent Dangerous</th>
+                                    <th>neighborhood</th>
+                                    <th>Race</th>
+                                    <th>Owner</th>
+                                    <th>Adress</th>
+                                </tr>
+                            </thead>
+
+                            <tbody id="lines">
+                            </tbody>
+                        </table>
                         </div>
                     </div> 
                 </div> 
@@ -84,6 +106,47 @@
     <script src="js/jquery.min.js"></script>
     <script src="js/morphext.min.js"></script> 
     <script src="js/scripts.js"></script> 
-    <script src="js/load-csv.js"></script> 
+    <script src="js/load-csv.js"></script>
+
+    <script src="js/table.js"></script>
+
+    <script>
+
+        const dt = new DataTable('#datatable', [
+        {
+            id: 'bAdd',
+            text: 'agregar',
+            icon: 'add_circle',
+            action: function(){
+                    //codigo callback
+                    dt.add2();
+                    printData();
+
+                }
+            },
+            {
+                id: 'bDelete',
+                text: 'eliminar',
+                icon: 'delete',
+                action: function(){
+                    //codigo callback
+                    const elementos = dt.getSelected();
+                    console.log(elementos);
+                }
+            },
+            {
+                id: 'bEdit',
+                text: 'editar',
+                icon: 'edit',
+                action: function(){
+                    //codigo callback
+                    console.log('accion de editar');
+                }
+            }
+            ]);
+        dt.parse();
+    </script>
+
+
 </body>
 </html>
