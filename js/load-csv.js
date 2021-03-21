@@ -11,7 +11,7 @@ d3.dsv( ";", "../Data/pets-citizens.csv" )
   } );
 
 
-  function prueba(){
+  function add2(){
   
     //animal species
     var especie = document.getElementById("Canine");
@@ -61,10 +61,9 @@ d3.dsv( ";", "../Data/pets-citizens.csv" )
     if(microchip != null && species != false && sex != false && size != "0" 
       && potentDangerous != false && neighborhood !="1" && race != null 
       && owner != null && address != null){
-      alData.push({"microchip" : microchip, "species" : species, "sex" : sex, "size" : size, 
+      alData.unshift({"microchip" : microchip, "species" : species, "sex" : sex, "size" : size, 
       "potentDangerous" : potentDangerous, "neighborhood" : neighborhood, "race" : race, "owner" : owner,
        "address" : address, "photo" : archivo});
-     printData(); 
     }
       else {
         console.log("xd");

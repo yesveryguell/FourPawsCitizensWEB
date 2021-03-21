@@ -1,37 +1,32 @@
-
-
 var dat = []
 var aa = localStorage.getItem('dat');
 dat = JSON.parse(aa);
-
-
-console.log(dat[0]);
-
 
 printData();
 
 function printData(){
 
- lines.innerHTML = ''
+	var table = document.getElementById('lines')
 
- for (var i = 0; i < 100; i++) {
+	for (var i = 0; i < 100; i++) {
 
-	lines.innerHTML += `
-	<tr>
-	<td class="table-checkbox"><input type="checkbox" name="" id=""></td>
-	<td>${dat[i].microchip}</td>
-	<td>${dat[i].species}</td>
-	<td>${dat[i].sex}</td>
-	<td>${dat[i].size}</td>
-	<td>${dat[i].potentDangerous}</td>
-	<td>${dat[i].neighborhood}</td>
-	<td>NO REGISTRADO</td>
-	<td>NO REGISTRADO<3</td>
-	<td>NO REGISTRADO</td>
-	</tr>
-	`;
- }
-					
+		var row = `<tr>
+		<td class="table-checkbox"><input type="checkbox"></td>
+		<td>${dat[i].microchip}</td>
+		<td>${dat[i].species}</td>
+		<td>${dat[i].sex}</td>
+		<td>${dat[i].size}</td>
+		<td>${dat[i].potentDangerous}</td>
+		<td>${dat[i].neighborhood}</td>
+		<td>NO REGISTRADO</td>
+		<td>NO REGISTRADO</td>
+		<td>NO REGISTRADO</td>
+		</tr>`
+
+		table.innerHTML += row
+	}
+
+console.log(dat)
 }
 
 class DataTable{
@@ -92,7 +87,7 @@ class DataTable{
 				this.items.push(item);
 			});
 
-			console.log(this.items);
+			//console.log(this.items);
 
 			this.makeTable();
 		}
@@ -387,10 +382,68 @@ add(item){
 		values:[]
 	};
 
-	const status = `<span class="${item[0]}"></span>`;
-	item.shift();
-	row.values = [status, ...item];
+	row.values = [...item];
 	this.items = [row, ...this.items];
 	this.makeTable();
+}
+
+add2(){
+
+    //animal species
+    var especie = document.getElementById("Canine");
+    var especie2 = document.getElementById("Feline");
+    //sex of the animals
+    var sexo = document.getElementById("m");
+    var sexo2 = document.getElementById("f");
+    //dangerous of the 
+    var peligroso = document.getElementById("true");
+    var peligroso2 = document.getElementById("false");
+
+    var microchip = document.getElementById('Microchip').value;
+    var species;
+    if(especie.checked == true)
+    	species = especie.value;
+    else if (especie2.checked == true)
+    	species = especie2.value;
+
+    var sex;
+    if(sexo.checked == true)
+    	sex = sexo.value;
+    else if (sexo2.checked == true)
+    	sex = sexo2.value;
+
+    var size = document.getElementById('size').value;
+
+    var potentDangerous;
+    if(peligroso.checked == true)
+    	potentDangerous = peligroso.value;
+    else if (peligroso2.checked == true)
+    	potentDangerous = peligroso2.value;
+
+    var neighborhood = document.getElementById('neighborhood').value;
+    var race = document.getElementById('race').value;
+    var owner = document.getElementById('owner').value;
+    var address = document.getElementById('address').value;
+    //imagen
+    var archivo = document.getElementById("file").files[0];
+    var reader = new FileReader();
+    var photo;
+    if (file) {
+    	reader.readAsDataURL(archivo); 
+    }else{
+    	console.log("2xd");
+    }
+
+    if(microchip != null && species != false && sex != false && size != "0" 
+    	&& potentDangerous != false && neighborhood !="1" && race != null 
+    	&& owner != null && address != null){
+    	dat.unshift({"microchip" : microchip, "species" : species, "sex" : sex, "size" : size, 
+    		"potentDangerous" : potentDangerous, "neighborhood" : neighborhood, "race" : race, "owner" : owner,
+    		"address" : address, "photo" : archivo});
+}
+else {
+	alert("ingrese la informacion en el formulario para poder agregarla")
+}
+
 }
 }
