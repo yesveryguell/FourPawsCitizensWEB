@@ -440,10 +440,55 @@ add2(){
     	dat.unshift({"microchip" : microchip, "species" : species, "sex" : sex, "size" : size, 
     		"potentDangerous" : potentDangerous, "neighborhood" : neighborhood, "race" : race, "owner" : owner,
     		"address" : address, "photo" : archivo});
-}
+			this.prueba();
+		}
+
 else {
 	alert("ingrese la informacion en el formulario para poder agregarla")
 }
 
 }
+prueba(){
+	var table = document.getElementById('divddd')
+
+	
+
+		var row = `<table id="datatable" class="datatable">
+		<thead>
+			<tr>
+				<th></th>
+				<th>Microchip</th>
+				<th>Species</th>
+				<th>Sex</th>
+				<th>Size</th>
+				<th>Potent Dangerous</th>
+				<th>neighborhood</th>
+				<th>Race</th>
+				<th>Owner</th>
+				<th>Adress</th>
+			</tr>
+		</thead>
+
+		<tbody id="lines">`
+		for (var i = 0; i < 100; i++) {
+			var row = `<tr>
+		<td class="table-checkbox"><input type="checkbox"></td>
+		<td>${dat[i].microchip}</td>
+		<td>${dat[i].species}</td>
+		<td>${dat[i].sex}</td>
+		<td>${dat[i].size}</td>
+		<td>${dat[i].potentDangerous}</td>
+		<td>${dat[i].neighborhood}</td>
+		<td>NO REGISTRADO</td>
+		<td>NO REGISTRADO</td>
+		<td>NO REGISTRADO</td>
+		</tr>`
+			table.innerHTML += row
+		}
+		`
+		</tbody>
+	</table>`
+
+	this.makeTable();
+	}
 }
