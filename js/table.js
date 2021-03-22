@@ -8,7 +8,7 @@ function printData(){
 
 	var table = document.getElementById('lines')
 
-	for (var i = 0; i < 100; i++) {
+	for (var i = 0; i < 200; i++) {
 
 		var row = `<tr>
 		<td class="table-checkbox"><input type="checkbox"></td>
@@ -455,9 +455,9 @@ add2(){
     	console.log("2xd");
     }
 
-    if(microchip != null && species != false && sex != false && size != "0" 
-    	&& potentDangerous != false && neighborhood !="1" && race != null 
-    	&& owner != null && address != null){
+    if(microchip != "" && species != false && sex != false && size != "0" 
+    	&& potentDangerous != false && neighborhood !="1" && race != "" 
+    	&& owner != "" && address != ""){
     	dat.unshift({"microchip" : microchip, "species" : species, "sex" : sex, "size" : size, 
     		"potentDangerous" : potentDangerous, "neighborhood" : neighborhood, "race" : race, "owner" : owner,
     		"address" : address, "photo" : archivo});
@@ -507,11 +507,11 @@ update(microchipUsuario){
     var owner = document.getElementById('owner').value;
     var address = document.getElementById('address').value;
 
-    // if(microchipValidacion == null){
+    if(microchipValidacion == ""){
 
     	if(species != false && sex != false && size != "0" 
-    		&& potentDangerous != false && neighborhood !="1" && race != null 
-    		&& owner != null && address != null){
+    		&& potentDangerous != false && neighborhood !="1" && race != "" 
+    		&& owner != "" && address != ""){
 
     	for (var i = 0; i < dat.length; i++) {
     		if ( dat[i].microchip == microchipUsuario) {
@@ -529,10 +529,10 @@ update(microchipUsuario){
     } else{
     	alert("Llene los campos vacios del formulario para editar una mascota correctamente")
     }   
-// }else{
+}else{
 
-// 	alert("No es posible editar el microchip, por favor deja esa casilla vacia")
-// }
+	alert("No es posible editar el microchip, por favor deja esa casilla vacia")
+}
 }
 
 }

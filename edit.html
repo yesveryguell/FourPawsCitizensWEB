@@ -14,6 +14,7 @@
 </head>
 <body>
 	<header id="header" class="header">
+        <a class="navbar-brand logo-image" href="pets.html"><img src="imagenes/logo.png" alt="alternative"></a>
         <div class="header-content">
             <div class="container">
                 <div class="row">
@@ -73,7 +74,7 @@
                                     <p style="color:black";> Address: <input type="address-line1" id="address" required></p>
                                     <input type="file" id="file" accept="image/*"/><br>
                                     <img id="img"/>
-                                    <input type="reset" value="Borrar">
+                                    <input type="reset" value="Limpiar Campos">
                                 </p>
                             </form>
 
@@ -133,10 +134,15 @@
 
                   var dato = dt.getSelected();
                   var microchip = dato[0].values[0];
-                  dt.update(microchip);
+                  if(dato.length > 1){
+                      alert("Sosio solo un campo")
+                  } else{
+                    dt.update(microchip);
                   prueba();
                     printData();
                     dt.parse();
+                  }
+                 
                   
                     //codigo callback
                 }
@@ -144,6 +150,16 @@
             ]);
         dt.parse();
     </script>
+     <div class="copyright">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <p class="p-small">Copyright © 2021 <a href="https://inovatik.com">Template by Inovatik</a></p>
+                </div> 
+            </div> 
+        </div> 
+    </div> 
+</header> 
 
 
 </body>
