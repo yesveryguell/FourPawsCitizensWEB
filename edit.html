@@ -126,23 +126,18 @@
                 }
             },
             {
-                id: 'bDelete',
-                text: 'eliminar',
-                icon: 'delete',
-                action: function(){
-                    //codigo callback
-                    const elementos = dt.getSelected();
-                    console.log(elementos);
-                }
-            },
-            {
                 id: 'bEdit',
                 text: 'editar',
                 icon: 'edit',
                 action: function(){
 
                   var dato = dt.getSelected();
-                  console.log(dato[0].values)
+                  var microchip = dato[0].values[0];
+                  dt.update(microchip);
+                  prueba();
+                    printData();
+                    dt.parse();
+                  
                     //codigo callback
                 }
             }

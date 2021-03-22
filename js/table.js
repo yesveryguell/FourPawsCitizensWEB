@@ -28,7 +28,7 @@ function printData(){
 
 	
 
-console.log(dat)
+	console.log(dat)
 }
 
 function prueba(){
@@ -37,16 +37,16 @@ function prueba(){
 
 	var table = document.getElementById('datatable')
 
-		table.innerHTML = `<table id="datatable" class="datatable">
-		<thead>
-			<tr>
-				
-			</tr>
-		</thead>
-		<tbody id="lines">
-		</tbody>
+	table.innerHTML = `<table id="datatable" class="datatable">
+	<thead>
+	<tr>
 
-		</table>`
+	</tr>
+	</thead>
+	<tbody id="lines">
+	</tbody>
+
+	</table>`
 }
 
 class DataTable{
@@ -81,6 +81,8 @@ class DataTable{
 		
 
 		parse(){
+
+			this.items = [];
 
 			const headers = [...this.element.querySelector('thead tr').children];
 			const trs = [...this.element.querySelector('tbody').children];
@@ -410,7 +412,7 @@ add(item){
 
 add2(){
 	var especie = document.getElementById("Canine");
-    var especie2 = document.getElementById("Feline");
+	var especie2 = document.getElementById("Feline");
     //sex of the animals
     var sexo = document.getElementById("m");
     var sexo2 = document.getElementById("f");
@@ -421,23 +423,23 @@ add2(){
     var microchip = document.getElementById('Microchip').value;
     var species;
     if(especie.checked == true)
-      species = especie.value;
+    	species = especie.value;
     else if (especie2.checked == true)
-      species = especie2.value;
+    	species = especie2.value;
 
     var sex;
     if(sexo.checked == true)
-      sex = sexo.value;
+    	sex = sexo.value;
     else if (sexo2.checked == true)
-      sex = sexo2.value;
+    	sex = sexo2.value;
 
     var size = document.getElementById('size').value;
 
     var potentDangerous;
     if(peligroso.checked == true)
-      potentDangerous = peligroso.value;
+    	potentDangerous = peligroso.value;
     else if (peligroso2.checked == true)
-      potentDangerous = peligroso2.value;
+    	potentDangerous = peligroso2.value;
 
     var neighborhood = document.getElementById('neighborhood').value;
     var race = document.getElementById('race').value;
@@ -448,35 +450,89 @@ add2(){
     var reader = new FileReader();
     var photo;
     if (file) {
-    reader.readAsDataURL(archivo); 
-  }else{
-      console.log("2xd");
+    	reader.readAsDataURL(archivo); 
+    }else{
+    	console.log("2xd");
     }
 
     if(microchip != null && species != false && sex != false && size != "0" 
-      && potentDangerous != false && neighborhood !="1" && race != null 
-      && owner != null && address != null){
-      dat.unshift({"microchip" : microchip, "species" : species, "sex" : sex, "size" : size, 
-      "potentDangerous" : potentDangerous, "neighborhood" : neighborhood, "race" : race, "owner" : owner,
-       "address" : address, "photo" : archivo});
-    }
-      else {
-        alert("Llene los campos vacios del formulario para agregar una nueva mascota.")
-      }
+    	&& potentDangerous != false && neighborhood !="1" && race != null 
+    	&& owner != null && address != null){
+    	dat.unshift({"microchip" : microchip, "species" : species, "sex" : sex, "size" : size, 
+    		"potentDangerous" : potentDangerous, "neighborhood" : neighborhood, "race" : race, "owner" : owner,
+    		"address" : address, "photo" : archivo});
+}
+else {
+	alert("Llene los campos vacios del formulario para agregar una nueva mascota.")
+}
 }
 
 
-update(){
+update(microchipUsuario){
+	var microchip = microchipUsuario;
 
-	var microchip = document.getElementById('Microchip').value;
-  var neighborhood = document.getElementById('neighborhood').value;
-  for (var i = 0; i < alData.length; i++) {
-    var probar = alData[i].microchip;
-    if ( probar == microchip) {
-    alData[i] = {...alData[i],neighborhood : neighborhood};
-  }
- }
- printData();
+	var microchipValidacion = document.getElementById('Microchip').value;
+
+	var especie = document.getElementById("Canine");
+	var especie2 = document.getElementById("Feline");
+    //sex of the animals
+    var sexo = document.getElementById("m");
+    var sexo2 = document.getElementById("f");
+    //dangerous of the 
+    var peligroso = document.getElementById("true");
+    var peligroso2 = document.getElementById("false");
+
+    var species;
+    if(especie.checked == true)
+    	species = especie.value;
+    else if (especie2.checked == true)
+    	species = especie2.value;
+
+    var sex;
+    if(sexo.checked == true)
+    	sex = sexo.value;
+    else if (sexo2.checked == true)
+    	sex = sexo2.value;
+
+    var size = document.getElementById('size').value;
+
+    var potentDangerous;
+    if(peligroso.checked == true)
+    	potentDangerous = peligroso.value;
+    else if (peligroso2.checked == true)
+    	potentDangerous = peligroso2.value;
+
+    var neighborhood = document.getElementById('neighborhood').value;
+    var race = document.getElementById('race').value;
+    var owner = document.getElementById('owner').value;
+    var address = document.getElementById('address').value;
+
+    // if(microchipValidacion == null){
+
+    	if(species != false && sex != false && size != "0" 
+    		&& potentDangerous != false && neighborhood !="1" && race != null 
+    		&& owner != null && address != null){
+
+    	for (var i = 0; i < dat.length; i++) {
+    		if ( dat[i].microchip == microchipUsuario) {
+
+    			dat[i] = {...dat[i],species : species};
+    			dat[i] = {...dat[i],sex : sex};
+    			dat[i] = {...dat[i],size : size};
+    			dat[i] = {...dat[i],potentDangerous : neighborhood};
+    			dat[i] = {...dat[i],neighborhood : race};
+    			dat[i] = {...dat[i],race : owner};
+    			dat[i] = {...dat[i],owner : address};
+    			dat[i] = {...dat[i],address : address};		
+    		}
+    	}
+    } else{
+    	alert("Llene los campos vacios del formulario para editar una mascota correctamente")
+    }   
+// }else{
+
+// 	alert("No es posible editar el microchip, por favor deja esa casilla vacia")
+// }
 }
 
 }
