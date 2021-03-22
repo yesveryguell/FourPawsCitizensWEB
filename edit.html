@@ -141,8 +141,8 @@
                 icon: 'edit',
                 action: function(){
 
-                  var dato = dt.renderRows();
-                  ponerDato(dato);
+                  var dato = dt.getSelected();
+                  console.log(dato[0].values)
                     //codigo callback
                 }
             }
