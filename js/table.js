@@ -18,15 +18,99 @@ function printData(){
 		<td>${dat[i].size}</td>
 		<td>${dat[i].potentDangerous}</td>
 		<td>${dat[i].neighborhood}</td>
-		<td>NO REGISTRADO</td>
-		<td>NO REGISTRADO</td>
-		<td>NO REGISTRADO</td>
+		<td>${dat[i].race}</td>
+		<td>${dat[i].owner}</td>
+		<td>${dat[i].address}</td>
 		</tr>`
 
 		table.innerHTML += row
 	}
 
+	
+
 console.log(dat)
+}
+
+function ponerDato(selected){
+	$('form').replaceWith('<form>');
+
+	var table = document.getElementById('form')
+
+		table.innerHTML = `<form name="registro" id="form">
+                            <p style="color:black";> Microchip: <input type="text" id="Microchip" value=${selected.microchip} required></p>
+                            <p style="color:black";> Species: <br />
+                                <input style="color:black"; type="radio" name="holi" id= "Canine" value="Canine" required> Canine 
+                                <input style="color:black"; type="radio" name="holi" id="Feline" value="Feline"> Feline
+                            </p>
+                            <p style="color:black";>Sex: <br />
+                                <input type="radio" name="holi1" id="m" value="Male" required> Male
+                                <input type="radio" name="holi1" id="f" value="Female"> Female
+                            </p>
+                            <p style="color:black";> Size: 
+                                <select required id="size" required>
+                                    <option value = "0">Seleccione una opcion</option>
+                                    <option >Miniature</option>
+                                    <option >Small</option>
+                                    <option >Medium</option>
+                                    <option >Big</option>
+                                </select></p>
+                                <p style="color:black";>potentDangerous: <br />
+                                    <input type="radio" name="holi2" id="true" value="True" required> Yes
+                                    <input type="radio" name="holi2" id="false" value="False"> No
+                                </p>
+                                <p style="color:black";> neighborhood: 
+                                    <select id=neighborhood required>
+                                        <option value = "1">Seleccione una opcion</option>
+                                        <option value = "A. Nriño">A. Nriño</option>
+                                        <option value = "B. Unidos">B. Unidos</option>
+                                        <option value = "Bosa">Bosa</option>
+                                        <option value = "C.Bolivar">C.Bolivar</option>
+                                        <option value = "Chapinero">Chapinero</option>
+                                        <option value = "Engativa">Engativa</option>
+                                        <option value = "Fontibon">Fontibon</option>
+                                        <option value = "Kennedy">Kennedy</option>
+                                        <option value = "La candelaria">La candelaria</option>
+                                        <option value = "Los martires">Los martires</option>
+                                        <option value = "Municipios Aledaños Bogota D.C.">Municipios Aledaños Bogota D.C.</option>
+                                        <option value = "P. Aranda">P. Aranda</option>
+                                        <option value = "R. Uribe">R. Uribe</option>
+                                        <option value = "San Cristobal">San Cristobal</option>
+                                        <option value = "Santa Fe">Santa Fe</option>
+                                        <option value = "Suba">Suba</option>
+                                        <option value = "Sumapaz">Sumapaz</option>
+                                        <option value = "Teusaquillo">Teusaquillo</option>
+                                        <option value = "Tunjuelito">Tunjuelito</option>
+                                        <option value = "Usaquen">Usaquen</option>
+                                        <option value = "Usme">Usme</option>
+                                        <option value = "Sin Identificar">Sin Identificar</option>
+                                    </select></p>
+                                    <p style="color:black";> Race: <input type="text" id="race" required></p>
+                                    <p style="color:black";> Owner: <input type="text" id="owner" required></p>
+                                    <p style="color:black";> Address: <input type="address-line1" id="address" required></p>
+                                    <input type="file" id="file" accept="image/*"/><br>
+                                    <img id="img"/>
+                                    <input type="reset" value="Borrar">
+                                </p>
+                            </form>`
+}
+
+
+function prueba(){
+
+	$('table').replaceWith('<table>');
+
+	var table = document.getElementById('datatable')
+
+		table.innerHTML = `<table id="datatable" class="datatable">
+		<thead>
+			<tr>
+				
+			</tr>
+		</thead>
+		<tbody id="lines">
+		</tbody>
+
+		</table>`
 }
 
 class DataTable{
@@ -207,8 +291,9 @@ class DataTable{
 						}else{
 							this.removeSelected(id);
 						}
-
 						console.log(this.selected);
+
+						return this.selected;
 					});
 				});
 			}
@@ -388,9 +473,7 @@ add(item){
 }
 
 add2(){
-
-    //animal species
-    var especie = document.getElementById("Canine");
+	var especie = document.getElementById("Canine");
     var especie2 = document.getElementById("Feline");
     //sex of the animals
     var sexo = document.getElementById("m");
@@ -402,23 +485,23 @@ add2(){
     var microchip = document.getElementById('Microchip').value;
     var species;
     if(especie.checked == true)
-    	species = especie.value;
+      species = especie.value;
     else if (especie2.checked == true)
-    	species = especie2.value;
+      species = especie2.value;
 
     var sex;
     if(sexo.checked == true)
-    	sex = sexo.value;
+      sex = sexo.value;
     else if (sexo2.checked == true)
-    	sex = sexo2.value;
+      sex = sexo2.value;
 
     var size = document.getElementById('size').value;
 
     var potentDangerous;
     if(peligroso.checked == true)
-    	potentDangerous = peligroso.value;
+      potentDangerous = peligroso.value;
     else if (peligroso2.checked == true)
-    	potentDangerous = peligroso2.value;
+      potentDangerous = peligroso2.value;
 
     var neighborhood = document.getElementById('neighborhood').value;
     var race = document.getElementById('race').value;
@@ -429,66 +512,35 @@ add2(){
     var reader = new FileReader();
     var photo;
     if (file) {
-    	reader.readAsDataURL(archivo); 
-    }else{
-    	console.log("2xd");
+    reader.readAsDataURL(archivo); 
+  }else{
+      console.log("2xd");
     }
 
     if(microchip != null && species != false && sex != false && size != "0" 
-    	&& potentDangerous != false && neighborhood !="1" && race != null 
-    	&& owner != null && address != null){
-    	dat.unshift({"microchip" : microchip, "species" : species, "sex" : sex, "size" : size, 
-    		"potentDangerous" : potentDangerous, "neighborhood" : neighborhood, "race" : race, "owner" : owner,
-    		"address" : address, "photo" : archivo});
-			this.prueba();
-		}
-
-else {
-	alert("ingrese la informacion en el formulario para poder agregarla")
+      && potentDangerous != false && neighborhood !="1" && race != null 
+      && owner != null && address != null){
+      dat.unshift({"microchip" : microchip, "species" : species, "sex" : sex, "size" : size, 
+      "potentDangerous" : potentDangerous, "neighborhood" : neighborhood, "race" : race, "owner" : owner,
+       "address" : address, "photo" : archivo});
+    }
+      else {
+        alert("Llene los campos vacios del formulario para agregar una nueva mascota.")
+      }
 }
 
+
+update(){
+
+	var microchip = document.getElementById('Microchip').value;
+  var neighborhood = document.getElementById('neighborhood').value;
+  for (var i = 0; i < alData.length; i++) {
+    var probar = alData[i].microchip;
+    if ( probar == microchip) {
+    alData[i] = {...alData[i],neighborhood : neighborhood};
+  }
+ }
+ printData();
 }
-prueba(){
-	var table = document.getElementById('divddd')
 
-	
-
-		var row = `<table id="datatable" class="datatable">
-		<thead>
-			<tr>
-				<th></th>
-				<th>Microchip</th>
-				<th>Species</th>
-				<th>Sex</th>
-				<th>Size</th>
-				<th>Potent Dangerous</th>
-				<th>neighborhood</th>
-				<th>Race</th>
-				<th>Owner</th>
-				<th>Adress</th>
-			</tr>
-		</thead>
-
-		<tbody id="lines">`
-		for (var i = 0; i < 100; i++) {
-			var row = `<tr>
-		<td class="table-checkbox"><input type="checkbox"></td>
-		<td>${dat[i].microchip}</td>
-		<td>${dat[i].species}</td>
-		<td>${dat[i].sex}</td>
-		<td>${dat[i].size}</td>
-		<td>${dat[i].potentDangerous}</td>
-		<td>${dat[i].neighborhood}</td>
-		<td>NO REGISTRADO</td>
-		<td>NO REGISTRADO</td>
-		<td>NO REGISTRADO</td>
-		</tr>`
-			table.innerHTML += row
-		}
-		`
-		</tbody>
-	</table>`
-
-	this.makeTable();
-	}
 }

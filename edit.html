@@ -20,7 +20,7 @@
                     <div class="col-lg-12">
                         <div class="text-container" id="divddd">
 
-                           <form name="registro">
+                           <form name="registro" id="form">
                             <p style="color:black";> Microchip: <input type="text" id="Microchip" required></p>
                             <p style="color:black";> Species: <br />
                                 <input style="color:black"; type="radio" name="holi" id= "Canine" value="Canine" required> Canine 
@@ -118,10 +118,11 @@
             text: 'agregar',
             icon: 'add_circle',
             action: function(){
-                    //codigo callback
-                    dt.add2();
-
-
+                dt.add2();
+               prueba();
+                    printData();
+                    dt.parse();
+                
                 }
             },
             {
@@ -139,8 +140,10 @@
                 text: 'editar',
                 icon: 'edit',
                 action: function(){
+
+                  var dato = dt.renderRows();
+                  ponerDato(dato);
                     //codigo callback
-                    console.log('accion de editar');
                 }
             }
             ]);
